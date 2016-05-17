@@ -1,0 +1,28 @@
+<div class="container">
+<h2 class="form-title">Eventos sísmicos</h2>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <!-- Table -->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Latitud</th>
+            <th>Longitud</th>
+            <th>Distancia a la costa</th>
+            <th>Fecha</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="evento in eventos | orderBy: 'id'">
+            <td>{{evento.id}}</td>
+            <td>{{evento.latitud}}</td>
+            <td>{{evento.longitud}}</td>
+            <td>{{evento.distanciaCosta}}</td>
+            <td>{{evento.createdAt}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div> 
+</div>

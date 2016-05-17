@@ -1,0 +1,30 @@
+<div class="container">
+<h2 class="form-title">Reportes enviados por los sensores</h2>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <!-- Table -->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Velocidad</th>
+            <th>Altura</th>
+            <th>Latitud</th>
+            <th>Longitud</th>
+            <th>Fecha</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="reporte in reportes | orderBy: 'id'">
+            <td>{{reporte.id}}</td>
+            <td>{{reporte.velocidad}}</td>
+            <td>{{reporte.altura}}</td>
+            <td>{{reporte.latitud}}</td>
+            <td>{{reporte.longitud}}</td>
+            <td>{{reporte.createdAt}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div> 
+</div>
