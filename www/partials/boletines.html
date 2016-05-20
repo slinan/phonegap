@@ -1,0 +1,75 @@
+  <section id="content-3-5" class="content-block content-3-5">
+    <h2>  Último boletín</h2>
+    <div class="row">
+        <!-- Feature Box 1 -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="feature-box">
+                <div class="icon">
+                    <span class="fa fa-calendar"></span>
+                </div>
+                <h3>Fecha</h3>
+                <p>{{bol.createdAt}}</p>
+                <h3>Perfil de alerta</h3>
+                <p>{{bol.perfilDeAlerta}}</p>
+                <h3>Tiempo de llegada a zona</h3>
+                <p>{{bol.tiempoLlegadaMinutos}} min</p>
+                <p>{{bol.zonaGeografica.nombre}}</p>
+                <h3>Altura de la ola</h3>
+                <p>{{bol.alturaOla}} m</p>
+            </div>
+        </div>
+        <!-- Feature Box 2 -->
+
+        <!-- Feature Box 4 -->
+
+        <!-- Row Ends -->
+    </div>
+    <!-- Container Ends -->
+</section>
+
+
+<h2 class="form-title">Historial de boletines</h2>
+
+<div class="container">
+    <div class="col-sm-4 pull-right">
+        <div class="input-group">
+            <input type="search" id="search" class="form-control" ng-model="search" >
+            <span class="input-group-btn"><a class="btn btn-primary" type="button">Buscar</a></span>
+        </div>
+        <!-- /.input-group -->
+    </div>
+</div>
+
+<body data-spy="scroll" data-target="nav">
+    <section class="content-block pricing-table-1 pricing-table-1-2">
+        <div class="container">
+
+            <div class="row"> 
+                <div ng-repeat="boletin in boletines | filter:search | orderBy: 'id':true">
+                    <div class="col-sm-4 price-block">
+                        <!-- Ribbon -->
+                        <h3>Boletín {{boletin.id}}</h3>
+                        <div class="price pastel-red">
+                            <div class="price-figure">
+                                <h4>Fecha</h4>
+                                <p>{{boletin.createdAt}}</p>
+                            </div>
+                        </div>
+                        <ul class="features">
+                            <li><strong> Perfil de alerta: </strong>{{boletin.perfilDeAlerta}} </li>
+                            <li><strong> Zona: </strong>{{boletin.zonaGeografica.nombre}}</li>
+                            <li><strong> Tiempo de llegada: </strong>{{boletin.tiempoLlegadaMinutos}} min</li>
+                            <li><strong> Altura de la ola: </strong>{{boletin.alturaOla}} m</li>
+
+                        </ul>
+                        <div class="price-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+</body>

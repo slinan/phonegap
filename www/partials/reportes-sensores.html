@@ -1,0 +1,48 @@
+<div class="container">
+
+    <h2 class="form-title">Reportes enviados por los sensores</h2>
+
+    <div class="container">
+        <div class="col-sm-4 pull-right">
+            <div class="input-group">
+                <input type="search" id="search" class="form-control" ng-model="search" >
+                <span class="input-group-btn"><a class="btn btn-primary" type="button">Buscar</a></span>
+            </div>
+            <!-- /.input-group -->
+        </div>
+    </div>
+
+    <body data-spy="scroll" data-target="nav">
+        <section class="content-block pricing-table-1 pricing-table-1-2">
+            <div class="container">
+
+                <div class="row"> 
+                    <div ng-repeat="reporte in reportes | filter:search | orderBy: 'id':true">
+                        <div class="col-sm-4 price-block">
+                            <!-- Ribbon -->
+                            <h3>Reporte {{reporte.id}}</h3>
+                            <div class="price pastel-red">
+                                <div class="price-figure">
+                                    <h4>Fecha</h4>
+                                    <p>{{reporte.createdAt}}</p>
+                                </div>
+                            </div>
+                            <ul class="features">
+                                <li><strong> Velocidad: </strong>{{reporte.velocidad}} m/s</li>
+                                <li><strong> Altura: </strong>{{reporte.altura}} m</li>
+                                <li><strong> Latitud: </strong>{{reporte.latitud}}</li>
+                                <li><strong> Longitud: </strong>{{reporte.longitud}}</li>
+                            </ul>
+                            <div class="price-footer">
+                                <a ng-click=abrirMapa(reporte); href="#" class="btn btn-info">Ver en mapa</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+    </body>
+</div>

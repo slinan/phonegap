@@ -1,0 +1,37 @@
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href ng-click="toolbar.selectTab(0)"> <span class="glyphicons glyphicons-open-water"></span> SATT</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li ng-class="{active:toolbar.isSelected(1)}">
+                    <a data-toggle="collapse" data-target=".in" href ng-click="toolbar.selectTab(1)"> <span class="glyphicon glyphicon-th-list"></span> Reporte sensores</a>
+                </li>
+                <li ng-class="{active:toolbar.isSelected(2)}">
+                    <a data-toggle="collapse" data-target=".in" href ng-click="toolbar.selectTab(2)"> <span class="glyphicon glyphicon-th-list"></span> Eventos sísmicos</a>
+                </li>
+                <li ng-class="{active:toolbar.isSelected(3)}">
+                    <a data-toggle="collapse" data-target=".in" href ng-click="toolbar.selectTab(3)"> <span class="glyphicon glyphicon-th-list"></span> Boletines</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a data-toggle="collapse" data-target=".nav-collapse" href="" ng-controller="LoginCtrl" ng-click="auth.signin()"> <span class="glyphicon glyphicon-user"></span> Sign In</a>
+                </li>
+
+                <li>
+                    <a data-toggle="collapse" data-target=".nav-collapse" href="" ng-controller="LoginCtrl" ng-click="logout()"> <span class="glyphicon glyphicon-log-out"></span> Log out</a>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>

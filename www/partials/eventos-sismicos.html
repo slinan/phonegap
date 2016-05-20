@@ -1,0 +1,46 @@
+<div class="container">
+<h2 class="form-title">Eventos sísmicos</h2>
+
+        <div class="container">
+            <div class="col-sm-4 pull-right">
+                <div class="input-group">
+                <input type="search" id="search" class="form-control" ng-model="search" >
+                    <span class="input-group-btn"><a class="btn btn-primary" type="button">Buscar</a></span>
+                </div>
+                <!-- /.input-group -->
+            </div>
+        </div>
+
+    <body data-spy="scroll" data-target="nav">
+        <section class="content-block pricing-table-1 pricing-table-1-2">
+            <div class="container">
+
+                <div class="row"> 
+                    <div ng-repeat="evento in eventos | filter:search | orderBy: 'id':true">
+                        <div class="col-sm-4 price-block">
+                            <!-- Ribbon -->
+                            <h3>Evento {{evento.id}}</h3>
+                            <div class="price pastel-red">
+                                <div class="price-figure">
+                                    <h4>Fecha</h4>
+                                    <p>{{evento.createdAt}}</p>
+                                </div>
+                            </div>
+                            <ul class="features">
+                                <li><strong> Distancia costa: </strong>{{evento.distanciaCosta}} m/s</li>
+                                <li><strong> Latitud: </strong>{{evento.latitud}}</li>
+                                <li><strong> Longitud: </strong>{{evento.longitud}}</li>
+                            </ul>
+                            <div class="price-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+        </body>
+
+</div>
