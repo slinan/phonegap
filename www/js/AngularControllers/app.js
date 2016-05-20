@@ -140,7 +140,7 @@ aplicacionMundial.directive('mapa', function () {
 });
 
 
-aplicacionMundial.controller("getBoletines", function ($http, $scope) {
+aplicacionMundial.controller("getBoletines", function ($http, $scope, $rootScope) {
   $http.get('https://sattg1.herokuapp.com/service/boletines').
   success(function (data, status, headers, config) {
     $scope.boletines = data;
@@ -150,6 +150,14 @@ aplicacionMundial.controller("getBoletines", function ($http, $scope) {
   error(function (data, status, headers, config) {
                     // log error
                   });
+
+  $scope.abrirMapa = function(nBoletin){
+  $rootScope.lat = nBoletin.zonaGeografica.latitud;
+  $rootScope.lon = nBoletin.zonaGeografica.longitud;
+  $rootScope.zona = nBoletin.zonaGeografica.nombre;
+  $scope.toolbar.selectTab(4);
+};
+
 });
 
 aplicacionMundial.controller("getReportesSensores", function ($http, $scope, $rootScope) {
@@ -163,6 +171,7 @@ aplicacionMundial.controller("getReportesSensores", function ($http, $scope, $ro
                   });
 
   $scope.abrirMapa = function(nReporte){
+  $rootScope.zona = '';
   $rootScope.lat = nReporte.latitud;
   $rootScope.lon = nReporte.longitud;
   $scope.toolbar.selectTab(4);
@@ -170,7 +179,7 @@ aplicacionMundial.controller("getReportesSensores", function ($http, $scope, $ro
 
 });
 
-aplicacionMundial.controller("getEventosSismicos", function ($http, $scope) {
+aplicacionMundial.controller("getEventosSismicos", function ($http, $scope, $rootScope) {
   $http.get('https://sattg1.herokuapp.com/service/eventosSismicos').
   success(function (data, status, headers, config) {
     $scope.eventos = data;
@@ -178,6 +187,14 @@ aplicacionMundial.controller("getEventosSismicos", function ($http, $scope) {
   error(function (data, status, headers, config) {
                     // log error
                   });
+
+  $scope.abrirMapa = function(nEvento){
+  $rootScope.zona = '';
+  $rootScope.lat = nEvento.latitud;
+  $rootScope.lon = nEvento.longitud;
+  $scope.toolbar.selectTab(4);
+};
+
 });
 
 

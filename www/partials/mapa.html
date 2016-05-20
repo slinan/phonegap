@@ -1,14 +1,33 @@
 <body data-spy="scroll" data-target="nav">
+    <div ng-if="zona==''">
+        <div class="container">
+            <div class="row">
+                <button type="button" ng-click="toolbar.selectTab(0)" class="btn btn-info btn-sm btn-block">Regresar</button>
+                <h3>Mapa: <strong>Coordenadas {{lat}},{{lon}}</strong> </h3>
+            </div>
+            <div class="row">
+                <ng-map zoom="11" center="[{{lat}}, {{lon}}]">
+                  <marker position="{{lat}}, {{lon}}]" />
+                  <shape name="circle" radius="400" center="[{{lat}}, {{lon}}]" radius="4000" />
+                  <control name="overviewMap" opened="true" />
+              </ng-map>  
+          </div> 
+      </div>
+  </div>
+
+  <div ng-if="zona!=''">
     <div class="container">
         <div class="row">
             <button type="button" ng-click="toolbar.selectTab(0)" class="btn btn-info btn-sm btn-block">Regresar</button>
-            <h3>Mapa: <strong>Coordenadas {{lat}},{{lon}}</strong> </h3>
+            <h3>Mapa: <strong>Coordenadas {{lat}},{{lon}}. Zona {{zona}}</strong> </h3>
         </div>
         <div class="row">
-            <ng-map zoom="11" center="[{{lat}}, {{lon}}]">
+            <ng-map zoom="6" center="[{{lat}}, {{lon}}]">
               <marker position="{{lat}}, {{lon}}]" />
-              <shape name="circle" radius="400" center="[{{lat}}, {{lon}}]" radius="4000" />
+              <shape name="circle" radius="50000" center="[{{lat}}, {{lon}}]" radius="10000" />
               <control name="overviewMap" opened="true" />
           </ng-map>  
       </div> 
-  </body>     
+  </div>
+</div>
+</body>     

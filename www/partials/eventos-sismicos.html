@@ -1,15 +1,15 @@
 <div class="container">
-<h2 class="form-title">Eventos sísmicos</h2>
+    <h2 class="form-title">Eventos sísmicos</h2>
 
-        <div class="container">
-            <div class="col-sm-4 pull-right">
-                <div class="input-group">
+    <div class="container">
+        <div class="col-sm-4 pull-right">
+            <div class="input-group">
                 <input type="search" id="search" class="form-control" ng-model="search" >
-                    <span class="input-group-btn"><a class="btn btn-primary" type="button">Buscar</a></span>
-                </div>
-                <!-- /.input-group -->
+                <span class="input-group-btn"><a class="btn btn-primary" type="button">Buscar</a></span>
             </div>
+            <!-- /.input-group -->
         </div>
+    </div>
 
     <body data-spy="scroll" data-target="nav">
         <section class="content-block pricing-table-1 pricing-table-1-2">
@@ -32,6 +32,7 @@
                                 <li><strong> Longitud: </strong>{{evento.longitud}}</li>
                             </ul>
                             <div class="price-footer">
+                                <a ng-click=abrirMapa(evento); href="#" class="btn btn-info">Ver en mapa</a>
                             </div>
                         </div>
                     </div>
@@ -41,6 +42,6 @@
             </div>
             <!-- /.container -->
         </section>
-        </body>
+    </body>
 
 </div>
